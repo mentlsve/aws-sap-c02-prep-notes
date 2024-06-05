@@ -7,9 +7,17 @@ Amazon Redshift is a fully managed, petabyte-scale data warehouse service in the
 * Node types: DC2 (dense-compute) and RA3
 * By default single-AZ, but multi-AZ can be configured for RA3 clusters
 
-A backup in Amazon Redshift Serverless is a point-in-time representation of the objects and data in your namespace. 
-There are two types of backups: snapshots that are manually created and recovery points that Amazon Redshift Serverless automatically creates for you. 
-Recovery points are created every 30 minutes and are kept for 24 hours.
+Snapshots are point-in-time backups of a cluster. There are two types of snapshots: automated and manual. Amazon Redshift stores these snapshots internally in Amazon S3 by using an encrypted Secure Sockets Layer (SSL) connection.
+
+Amazon Redshift automatically takes incremental snapshots that track changes to the cluster since the previous automated snapshot. Automated snapshots retain all of the data required to restore a cluster from a snapshot.
+By default Amazon Redshift takes a snapshot about every eight hours or following every 5 GB per node of data changes, or whichever comes first.
+Automated snapshots are deleted at the end of a retention period. The default retention period is one day (but can be configured up to 35 days)
+
+You can configure Amazon Redshift to automatically copy snapshots (automated or manual) for a cluster to another AWS Region. When a snapshot is created in the cluster's primary AWS Region, it's copied to a secondary AWS Region.
+
+### Amazon Redshift Serverless
+
+There are two types of backups in Amazon Redshift Serverless: snapshots that are manually created and recovery points that Amazon Redshift Serverless creates automatically. 
 
 ## Redshift Spectrum
 
