@@ -12,3 +12,7 @@
 * The AWS DMS replication instance connects to the source and target DB. For these endpoints required information includes engine type, server name, port, credentials.
 * There are three options for migration type in a an AWS Database Migration Task Full Load, Full Load + CDC, CDC Only
 * Instances which should be considered: T2/T3 for test, C4 for heterogeneous, R4/R5 for many transactions
+
+## Usage
+
+* Create a subnet group in DMS (Choose a subnet group for your replication instance. The subnet group defines the IP ranges and subnets that your replication instance can use within the VPC you've chosen.)
