@@ -20,3 +20,8 @@ NACL and Security Groups
 
 * Regional service
 * Supports IP Multicast
+
+# VPC Flow Logs
+
+* VPC, Subnet or ENI level
+* Can be sent to S3, CloudWach Logs and Kineses Data Firehose.
