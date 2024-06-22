@@ -38,3 +38,9 @@
 * AD-compatible managed directory
 * Can not be joined with on-premises AD
 * no MFA
+
+## Cognito
+
+* User Pool: Client authenticates and gets back a JWT
+* User Pool: Can be an identity source
+* Identity Pool: Use AWS STS to get short-lived credentials for AWS roles
