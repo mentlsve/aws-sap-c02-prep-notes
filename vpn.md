@@ -4,6 +4,8 @@
 * Customer Gateway is the representation of the other (e.g. on-premises) endpoint
 * Supports static routing and dynamic routing (BGP)
 * BGP requires configuration of ASN of CGW and ASN on VGW
+* You can attach one virtual private gateway to a VPC at a time
+* Up to 1.25 Gbps per tunnel
 
 ## Transitive traffic
 
@@ -25,6 +27,7 @@ From [docs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.htm
 
 * Uses OpenVPN
 * Client VPN is compatible with VPC peering
+* VPN Endpoint performs SNAT from Client CIDR range
 
 ## Client CIDR range
 
@@ -42,8 +45,8 @@ From [docs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.htm
 * Data in transit is not encryped but private
 * Not redundant by default
 * Direct Connect has multiple Virtual Interfaces (VIF)
-  * Public: Connect to public AWS endpoints
-  * Private: Connect to resources in your VPC, including VPC Interface endpoints
+  * Public: Connect to public AWS endpoints (not internet)
+  * Private: Connect to resources in your VPC, including VPC Interface endpoints. A private VIF connectes to a single VPC in the same AWS region using a VGW
   * Transit: Connect to resources in a VPC via Transit Gateway
 * Link Aggregation Groups: Sum up up to 4 dedicated connections with same bandwith terminating at the same Direct connect endpoint into a logical one.
 
